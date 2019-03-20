@@ -11,3 +11,5 @@ Feature 2
 Lorem stuff
 
 ## Feature branch testing
+
+When feature branches are merged to dev and then to master using pull requests, they show up on the network graph.
