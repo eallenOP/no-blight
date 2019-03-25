@@ -1,9 +1,19 @@
 language: ruby
-before_install:
- - export NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+
+script:
+ - bundle exec rake test
+
+cache:
+  directories:
+  - $TRAVIS_BUILD_DIR/tmp/.htmlproofer #https://github.com/gjtorikian/html-proofer/issues/381
+  
+env:
+  global:
+  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speeds up installation of html-proofer
+
 addons:
   apt:
     packages:
     - libcurl4-openssl-dev # required to avoid SSL errors
-script:
- - gem install html-proofer && htmlproofer .
+
+sudo: false # route your build to the container-based infrastructure for a faster build

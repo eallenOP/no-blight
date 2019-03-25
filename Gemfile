@@ -1,2 +1,5 @@
-source 'https://rubygems.org'
-gem 'html-proofer'
+source "https://rubygems.org"
+
+group :test do
+  gem "html-proofer"
+end
